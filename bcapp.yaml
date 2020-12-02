@@ -1,0 +1,32 @@
+Name:		ruby-hello
+Namespace:	lesson
+Created:	44 minutes ago
+Labels:		app=ruby-hello
+		app.kubernetes.io/component=ruby-hello
+		app.kubernetes.io/instance=ruby-hello
+Annotations:	openshift.io/generated-by=OpenShiftNewApp
+Latest Version:	1
+
+Strategy:	Docker
+URL:		https://github.com/openshift/ruby-hello-world
+From Image:	ImageStreamTag ruby-25-centos7:latest
+Output to:	ImageStreamTag ruby-hello:latest
+
+Build Run Policy:	Serial
+Triggered by:		Config, ImageChange
+Webhook GitHub:
+	URL:	https://api.eu45.prod.nextcle.com:6443/apis/build.openshift.io/v1/namespaces/lesson/buildconfigs/ruby-hello/webhooks/<secret>/github
+Webhook Generic:
+	URL:		https://api.eu45.prod.nextcle.com:6443/apis/build.openshift.io/v1/namespaces/lesson/buildconfigs/ruby-hello/webhooks/<secret>/generic
+	AllowEnv:	false
+Builds History Limit:
+	Successful:	5
+	Failed:		5
+
+Build		Status		Duration	Creation Time
+ruby-hello-1 	complete 	1m1s 		2020-12-02 09:42:40 -0500 EST
+
+Events:
+  Type		Reason				Age			From			Message
+  ----		------				----			----			-------
+  Warning	BuildConfigInstantiateFailed	44m (x9 over 44m)	buildconfig-controller	error instantiating Build from BuildConfig lesson/ruby-hello (0): Error resolving ImageStreamTag ruby-25-centos7:latest in namespace lesson: unable to find latest tagged image
