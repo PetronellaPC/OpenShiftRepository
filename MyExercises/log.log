@@ -1,0 +1,19 @@
+STEP 1: FROM ubi7/ubi:7.7
+STEP 2: MAINTAINER PC
+--> Using cache c0182f918c1bb67c4e092a21685ee360a8dcfd86c932a0f962bd9251e12a0f69
+STEP 3: FROM c0182f918c1bb67c4e092a21685ee360a8dcfd86c932a0f962bd9251e12a0f69
+STEP 4: LABEL description="A basic Apache container on RHEL 7 UBI"
+--> Using cache 7eee44d2cb501a926115f9653119879bd297e735ecb3c9e426ddccf088eaeea8
+STEP 5: FROM 7eee44d2cb501a926115f9653119879bd297e735ecb3c9e426ddccf088eaeea8
+STEP 6: RUN yum install -y httpd &&     yum clean all
+--> Using cache 26d067a09371226efc582ca149934d6c01bc8bb73e174d7930d92a7fc4607a54
+STEP 7: FROM 26d067a09371226efc582ca149934d6c01bc8bb73e174d7930d92a7fc4607a54
+STEP 8: RUN echo "Hello from Dockerfile" > /usr/share/httpd/noindex/index.html
+--> Using cache 8e3abcdbdc77aba320d38383148c8f7ad790273448eecdd118bfabe38e980034
+STEP 9: FROM 8e3abcdbdc77aba320d38383148c8f7ad790273448eecdd118bfabe38e980034
+STEP 10: EXPOSE 80
+--> Using cache 54a45d86808aa2e1acb72429965fc002d0d8863effb3936d18265c1082e7cf77
+STEP 11: FROM 54a45d86808aa2e1acb72429965fc002d0d8863effb3936d18265c1082e7cf77
+STEP 12: ENTRYPOINT  ["httpd", "-D", "FOREGROUND"] 
+--> Using cache 38fae2441097808daf9cd1432a1c655f44c4e419c28fd7fc4a392ea95934d37a
+STEP 13: COMMIT apache-e:exercise
